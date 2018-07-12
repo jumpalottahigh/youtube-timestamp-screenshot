@@ -14,6 +14,11 @@ var parseUrl = function(url) {
 }
 
 app.get('/', function(req, res) {
+  if (req.query.url === undefined || req.query.t === undefined) {
+    res.send('Invalid url: ' + urlToScreenshot + '&t=' + req.query.t)
+    return
+  }
+
   var urlToScreenshot = parseUrl(req.query.url)
 
   if (validUrl.isWebUri(urlToScreenshot)) {
@@ -40,6 +45,7 @@ app.get('/', function(req, res) {
           'attachment;filename="' + urlToScreenshot + '.png"'
         )
         res.setHeader('Content-Type', 'image/png')
+        res.setHeader('Access-Control-Allow-Origin', '*')
         res.send(buffer)
       })
 

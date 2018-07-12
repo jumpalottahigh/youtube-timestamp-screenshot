@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Youtube Timestamp Screenshot</title>
+</head>
+
+<body>
+  <form action="#" method="POST">
+    <input type="text">
+    <input type="submit" value="Send">
+  </form>
+  <img src alt="screenshot holder" />
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const CONFIG = {
+        APP_URL: 'http://localhost:8080/?url='
+      }
+      const form = document.querySelector('form');
+      const img = document.querySelector('img');
+
+      function getBase64(url) {
+        return axios
+          .get(url, {
+            responseType: 'blob'
+          })
+          .then(response => {
+            let reader = new window.FileReader();
+            reader.readAsDataURL(response.data);
+            reader.onload = function () {
+              let imageDataUrl = reader.result;
+              img.setAttribute("src", imageDataUrl);
+            }
+          })
+      }
+
+      // Fetch image on submit
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        let { value } = e.target[0]
+        // TODO: do some checks agains if valid URL
+
+        let URL = `${CONFIG.APP_URL}${value}`
+        getBase64(URL)
+      });
+    });
+  </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
