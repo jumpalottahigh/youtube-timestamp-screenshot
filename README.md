@@ -1,4 +1,6 @@
-# YouTube Timestamp Screenshot
+# YouTube Screenshot
+
+![Youtube Screenshot](./docs/youtube-timestamp-screenshot.png)
 
 Node.js app to screenshot a YouTube video at any timestamp.
 
