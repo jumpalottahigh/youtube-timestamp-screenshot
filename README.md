@@ -6,6 +6,8 @@ Node.js app to screenshot a YouTube video at any timestamp.
 
 Usage: https://youtube-timestamp-screenshot.herokuapp.com/?url=https://www.youtube.com/watch?v=cutWz4Jnh_U&t=13m37s
 
+Live demo: https://youtube-screenshot.netlify.com/
+
 Runs Puppeteer on Heroku, extends on the base of this source code:
 https://timleland.com/headless-chrome-on-heroku/
 
