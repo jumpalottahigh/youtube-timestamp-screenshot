@@ -11,6 +11,10 @@ Live demo: https://youtube-screenshot.netlify.com/
 Runs Puppeteer on Heroku, extends on the base of this source code:
 https://timleland.com/headless-chrome-on-heroku/
 
+## Setup
+
+`$ npm i #or yarn`
+
 ## Social Links
 
 - [www.georgi-yanev.com](https://www.georgi-yanev.com)
